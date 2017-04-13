@@ -1,0 +1,310 @@
+FUNÇOES NECESSÁRIAS:
+	GERAR DATAS:
+OK      ano_bissexto(ano);
+OK      num_dias_mes(mes,ano);
+OK      dia_da_semana(dia,mes,ano);
+        converter de time(&now) ou
+        struct tm (zero é segunda feira) para formato usado
+
+    USO GERAL
+        busca_binaria(int)
+        entra_texto()  -  funçao que não permite que sejam digitados mais caracteres que o necessário e coloca o cursor no lugar correto;
+
+
+
+	INTERFACE
+		gerar_titulo_menu
+		gerar_tabela
+        gerar_divisoes
+
+        mover_cursor
+        mudar_caixa
+
+
+
+
+	COISINHAS ADICIONAIS
+		alarme();
+
+
+
+OPCOES:
+	ALTERAR CORES
+		fundo
+		dias_outro_mes
+		dias_mes
+		dia_hoje
+		selecionado
+
+
+╩╗╔
+
+ ┌┐└┘
+
+
+=======================================================================================================
+Arquivo     Opcoes                                    ┌───────────────────────────────────────────────┐
+                                                      │ Buscar:                                       │   
+   AGENDA DE COMPROMISSOS - MENU PRINCIPAL            └───────────────────────────────────────────────┘
+╔═════════════════════╤════════════════════════╦══════════════════════════════════════════════════════╗
+║       DEZEMBRO      │         2017           ║                 QUARTA-FEIRA 8                       ║
+╠═════════════════════╧════════════════════════╬══════════════════════════════════════════════════════╣
+║                                              ║   Dia    Reunião de trabalho                         ║
+║       D    S    T    Q    Q    S    S        ║   Todo                                               ║
+║                                              ╟──────────────────────────────────────────────────────╢
+║                      1    2    3    4        ║┌  9:00   Prova de Programaçao Imperativa            ┐║
+║                                              ║└ 11:00                                              ┘║
+║        5    6    7  [8]   9   10   11        ╟──────────────────────────────────────────────────────╢
+║                                              ║  12:00   Almoço na casa de Joana                     ║
+║       12   13   14  15   16   17   18        ║  13:00                                               ║
+║                                              ╟──────────────────────────────────────────────────────╢
+║       19   20   21  22   23   24   25        ║  18:00  Show de arrocha                              ║
+║                                              ║  21:00                                               ║
+║       26   27   28  29   30   31             ╟──────────────────────────────────────────────────────╢
+║                                              ║  22:00  Jogar videogame                              ║
+║                                              ║  02:00                                               ║
+║                                              ║                                                      ║
+║                                              ║                                                      ║
+║                                              ║                                                      ║
+╠══════════════════════════════════════════════║                                                      ║
+║ Prova de Programacao imperativa              ║                                                      ║
+║ Horario: 8:30 8/12/2017                      ║                                                      ║
+║ Local: Laboratório do DCOMP                  ║                                                      ║
+║ Alarme: Ligado                               ║                                                      ║
+║ Recorrente: Não                              ║                                                      ║
+║                                              ║                                                      ║
+║                                              ║                                                      ║
+║                                              ║                                                      ║
+║                                              ║                                                      ║
+║                                              ║                                                      ║
+╚══════════════════════════════════════════════╩══════════════════════════════════════════════════════╝
+=======================================================================================================
+Arquivo     Opcoes
+                                 AGENDA DE COMPROMISSOS (menu principal)
+
+╔═════════════════════╤════════════════════════╦═══════════════════════════════════════════════════════╗
+║       DEZEMBRO      │         2017           ║                 QUARTA-FEIRA 8                        ║
+╠═════════════════════╧════════════════════════╬═══════════════════════════════════════════════════════╣
+║                                              ║   8:00   Reunião de trabalho                          ║
+║       D    S    T    Q    Q    S    S        ║   8:30                                                ║
+║                                              ╟───────────────────────────────────────────────────────╢
+║                      1    2    3    4        ║   9:00   Prova de Programaçao Imperativa              ║
+║                                              ║  11:00                                                ║
+║        5    6    7  [8]   9   10   11        ╟───────────────────────────────────────────────────────╢
+║                                              ║  12:00   Almoço na casa de Joana                      ║
+║       12   13   14  15   16   17   18        ║  13:00                                                ║
+║                                              ╟───────────────────────────────────────────────────────╢
+║       19   20   21  22   23   24   25        ║  18:00  Show de arrocha                               ║
+║                                              ║  21:00                                                ║
+║       26   27   28  29   30   31             ╟───────────────────────────────────────────────────────╢
+║                                              ║┌ 22:00  Jogar videogame                             ┐ ║
+║                                              ║└ 02:00                                              ┘ ║
+║                                              ║                                                       ║
+║                                              ║                                                       ║
+║                                              ║                                                       ║
+╠══════════════════════════════════════════════║                                                       ║
+║ Jogar videogame                              ║                                                       ║
+║ Inicio: 22:00 8/12/2017                      ║                                                       ║
+║ Fim:    02:00 9/12/2017                      ║                                                       ║
+║ Local: Laboratório do DCOMP                  ║                                                       ║
+║ Alarme: Ligado                               ║                                                       ║
+║ Recorrente: Sim  S T Q Q S S D               ║                                                       ║
+║    De: 01/05/2017 até 31/12/2050             ║                                                       ║
+║                                              ║                                                       ║
+║                                              ║                                                       ║
+║                                              ║                                                       ║
+╚══════════════════════════════════════════════╩═══════════════════════════════════════════════════════╝
+=======================================================================================================
+Arquivo     Opcoes
+                                 AGENDA DE COMPROMISSOS (menu principal)
+
+╔═════════════════════╤════════════════════════╦══════════════════════════════════════════════════════╗
+║       DEZEMBRO      │         2017           ║                 QUARTA-FEIRA 8                       ║
+╠═════════════════════╧════════════════════════╬══════════════════════════════════════════════════════╣
+║                                              ║   8:00   Reunião de trabalho                         ║
+║       D    S    T    Q    Q    S    S        ║   8:30                                               ║
+║                          |─────────────────────────────────────────|────────────────────────────────╢
+║                      1   |                ALARME                   |gramaçao Imperativa             ║
+║                          |                                         |                                ║
+║        5    6    7  [8]  |    9:00   Apresentacao de PI            |────────────────────────────────╢
+║                          |                                         |sa de Joana                     ║
+║       12   13   14  15   |                                         |                                ║
+║                          |        OK               Adiar           |────────────────────────────────╢
+║       19   20   21  22   |                                         |ha                              ║
+║                          |─────────────────────────────────────────|                                ║
+║       26   27   28  29   30   31             ╟──────────────────────────────────────────────────────╢
+║                                              ║┌ 22:00  Jogar videogame                            ┐ ║
+║                                              ║└ 23:00                                             ┘ ║
+║                                              ║                                                      ║
+║                                              ║                                                      ║
+║                                              ║                                                      ║
+╠══════════════════════════════════════════════║                                                      ║
+║ Jogar videogame                              ║                                                      ║
+║ Inicio: 22:00 8/12/2017                      ║                                                      ║
+║ Fim:    02:00 9/12/2017                      ║                                                      ║
+║ Local: Laboratório do DCOMP                  ║                                                      ║
+║ Alarme: Ligado                               ║                                                      ║
+║ Recorrente: Sim  S T Q Q S S D               ║                                                      ║
+║    De: 01/05/2017 até 31/12/2050             ║                                                      ║
+║                                              ║                                                      ║
+║                                              ║                                                      ║
+║                                              ║                                                      ║
+╚══════════════════════════════════════════════╩══════════════════════════════════════════════════════╝
+
+
+tm_sec  int seconds after the minute    0-61*
+tm_min  int minutes after the hour  0-59
+tm_hour int hours since midnight    0-23
+tm_mday int day of the mes    1-31
+tm_mon  int mess since January    0-11
+tm_year int years since 1900    
+tm_wday int days since Sunday   0-6
+tm_yday int days since January 1    0-365
+tm_isdst    int Daylight Saving Time flag
+
+
+
+
+
+
+int numero_dias_mes(int mes , int ano){
+            int dias;  
+            if (mes == 4 || mes == 6 || mes == 9 || mes == 11)  
+              dias = 30;  
+            else if (mes == 2)  
+            { bool ehBissexto = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);  
+              if (ehBissexto)  
+                dias = 29;  
+              else  
+                dias = 28;  
+            }  
+            else  
+              dias = 31;  
+}
+
+
+
+
+"=======================================================================================================\nArquivo     Opcoes                                    ┌───────────────────────────────────────────────┐\n                                                      │ Buscar:                                       │   \n   AGENDA DE COMPROMISSOS - MENU PRINCIPAL            └───────────────────────────────────────────────┘\n╔═════════════════════╤════════════════════════╦══════════════════════════════════════════════════════╗\n║       DEZEMBRO      │         2017           ║                 QUARTA-FEIRA 8                       ║\n╠═════════════════════╧════════════════════════╬══════════════════════════════════════════════════════╣\n║                                              ║   Dia    Reunião de trabalho                         ║\n║       D    S    T    Q    Q    S    S        ║   Todo                                               ║\n║                                              ╟──────────────────────────────────────────────────────╢\n║                      1    2    3    4        ║┌  9:00   Prova de Programaçao Imperativa            ┐║\n║                                              ║└ 11:00                                              ┘║\n║        5    6    7  [8]   9   10   11        ╟──────────────────────────────────────────────────────╢\n║                                              ║  12:00   Almoço na casa de Joana                     ║\n║       12   13   14  15   16   17   18        ║  13:00                                               ║\n║                                              ╟──────────────────────────────────────────────────────╢\n║       19   20   21  22   23   24   25        ║  18:00  Show de arrocha                              ║\n║                                              ║  21:00                                               ║\n║       26   27   28  29   30   31             ╟──────────────────────────────────────────────────────╢\n║                                              ║  22:00  Jogar videogame                              ║\n║                                              ║  02:00                                               ║\n║                                              ║                                                      ║\n║                                              ║                                                      ║\n║                                              ║                                                      ║\n╠══════════════════════════════════════════════║                                                      ║\n║ Prova de Programacao imperativa              ║                                                      ║\n║ Horario: 8:30 8/12/2017                      ║                                                      ║\n║ Local: Laboratório do DCOMP                  ║                                                      ║\n║ Alarme: Ligado                               ║                                                      ║\n║ Recorrente: Não                              ║                                                      ║\n║                                              ║                                                      ║\n║                                              ║                                                      ║\n║                                              ║                                                      ║\n║                                              ║                                                      ║\n║                                              ║                                                      ║\n╚══════════════════════════════════════════════╩══════════════════════════════════════════════════════╝"\n=
+
+
+
+
+
+
+╔═════════════════════╤════════════════════════╦═══════════════════════════════════════════════════════╗
+║CAIXA 1   mes        │ CAIXA 2   ano          ║ CAIXA 5     nome_dia num_dia                          ║
+╠═════════════════════╧════════════════════════╬═══════════════════════════════════════════════════════╣
+║     CAIXA 4                                  ║   8:00   Reunião de trabalho                          ║
+║           dias_da_semana                     ║   8:30                                                ║
+║                                              ╟───────────────────────────────────────────────────────╢
+║         dias_do_mes                          ║   9:00   Prova de Programaçao Imperativa              ║
+║         dias_do_mes                          ║  11:00                                                ║
+║         dias_do_mes                          ╟───────────────────────────────────────────────────────╢
+║         dias_do_mes                          ║  12:00   Almoço na casa de Joana                      ║
+║         dias_do_mes                          ║  13:00                                                ║
+║         dias_do_mes                          ╟───────────────────────────────────────────────────────╢
+║         dias_do_mes                          ║  18:00  Show de arrocha                               ║
+║         dias_do_mes                          ║  21:00                                                ║
+║         dias_do_mes                          ╟───────────────────────────────────────────────────────╢
+║                                              ║┌ 22:00  Jogar videogame                             ┐ ║
+║                                              ║└ 02:00                                              ┘ ║
+║                                              ║                                                       ║
+║                                              ║                                                       ║
+║                                              ║                                                       ║
+╠══════════════════════════════════════════════║                                                       ║
+║       nome_do_evento                         ║                                                       ║
+║ Inicio:       informacoes_do_evento          ║                                                       ║
+║ Fim:          informacoes_do_evento          ║                                                       ║
+║ Local:        informacoes_do_evento          ║                                                       ║
+║ Alarme:       informacoes_do_evento          ║                                                       ║
+║ Recorrente:   informacoes_do_evento          ║                                                       ║
+║    De:            até                        ║                                                       ║
+║                                              ║                                                       ║
+║                                              ║                                                       ║
+║                                              ║                                                       ║
+╚══════════════════════════════════════════════╩═══════════════════════════════════════════════════════╝
+
+
+=======================================================================================================
+Arquivo     Opcoes                                    ┌───────────────────────────────────────────────┐
+                                                      │ Buscar:                                       │   
+   AGENDA DE COMPROMISSOS - MENU PRINCIPAL            └───────────────────────────────────────────────┘
+╔═════════════════════╤════════════════════════╦══════════════════════════════════════════════════════╗
+║       DEZEMBRO      │         2017           ║           RESULTADOS DA BUSCA                        ║
+╠═════════════════════╧════════════════════════╬══════════════════════════════════════════════════════╣
+║                                              ║  19/03/2016   Viagem para ilheus                     ║
+║       D    S    T     Q    Q    S    S       ║  06:00-11:00                                         ║
+║                                              ╟──────────────────────────────────────────────────────╢
+║    * [  ]             1    2    3    4       ║  05/05/2017   Viagem para Recife                     ║
+║                                              ║  12:00-19:00                                         ║
+║        5    6    7   [8]   9   10   11       ╟──────────────────────────────────────────────────────╢
+║                                              ║┌ 06/05/2017   Surf na praia de Boa Viagem          ┐ ║
+║       12   13   14   15   16   17   18       ║└ 08:00-11:30                                       ┘ ║
+║                                              ╟──────────────────────────────────────────────────────╢
+║       19   20   21   22   23   24   25       ║                                                      ║
+║                                              ║                                                      ║
+║       26   27   28   29   30   31            ╟                                                      ╢
+║                                              ║                                                      ║
+║                                              ║                                                      ║
+║                                              ║                                                      ║
+║                                              ║                                                      ║
+║                                              ║                                                      ║
+╠══════════════════════════════════════════════║                                                      ║
+║ Surf na praia de Boa Viagem                  ║                                                      ║
+║ Inicio: 08:00 06/05/2017                     ║                                                      ║
+║ Fim:    11:30 06/05/2017                     ║                                                      ║
+║ Local: De frente à praça da malhação         ║                                                      ║
+║ Alarme: Ligado                               ║                                                      ║
+║ Recorrente: Não                              ║                                                      ║
+║                                              ║                                                      ║
+║                                              ║                                                      ║
+║                                              ║                                                      ║
+║                                              ║                                                      ║
+╚══════════════════════════════════════════════╩══════════════════════════════════════════════════════╝
+
+
+
+
+(*curs).esq = esq;
+(*curs).dir = dir;
+(*curs).x = x;
+(*curs).y = y;
+(*curs).dist = dist;
+(*curs).offsetX = offsetX;
+(*curs).offsetY = offsetY;
+(*curs).limiteX1 = limiteX1;
+(*curs).limiteY1 = limiteY1;
+(*curs).limiteX2 = limiteX2;
+(*curs).limiteY2 = limiteY2;
+
+    textcolor(6);
+    printf("      \n26      27      28      29      30      31      ");
+
+    textcolor(5);
+    printf("      1\n2      3      4      5      6      7      8\n9      10      11      12      13      14      15\n");
+    textcolor(4);
+    printf("      16");
+    textcolor(5);
+    printf("      17      18      19      20      21      22\n23      24      25      26      27      28      29\n30");
+
+    textcolor(6);
+    printf("      1      2      3      4      5      6      ");
+
+
+        switch (direcao){
+    case DIREITA:
+        if((*curs).limiteX2>=(*curs).x+(*curs).offsetX)(*curs).x+=(*curs).offsetX;
+        break;
+    case ESQUERDA:
+        if((*curs).limiteX1<=(*curs).x-(*curs).offsetX)(*curs).x+=(*curs).offsetX;
+        break;
+    case CIMA:
+        if((*curs).limiteY1<=(*curs).y-(*curs).offsetY)(*curs).y+=(*curs).offsetY;
+        break;
+    case BAIXO:
+        if((*curs).limiteY2>=(*curs).y+(*curs).offsetY)(*curs).y+=(*curs).offsetY;
+        break;
+    }
+
+

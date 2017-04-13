@@ -1,0 +1,40 @@
+//informacoes iniciais
+numero de eventos comuns - numero de eventos recorrentes -
+
+
+
+
+//  inicio          fim             alarme             nome                                 local
+AAAAAMMDDhhmm AAAAAMMDDhhmm alarme(opcional) Nome do evento ## (marcador de fim do nome) Local ## 
+AAAAAMMDDhhmm AAAAAMMDDhhmm alarme(opcional) Nome do evento ## (marcador de fim do nome) Local ## 
+AAAAAMMDDhhmm AAAAAMMDDhhmm alarme(opcional) Nome do evento ## (marcador de fim do nome) Local ## 
+AAAAAMMDDhhmm AAAAAMMDDhhmm alarme(opcional) Nome do evento ## (marcador de fim do nome) Local ## 
+AAAAAMMDDhhmm AAAAAMMDDhhmm alarme(opcional) Nome do evento ## (marcador de fim do nome) Local ## 
+AAAAAMMDDhhmm AAAAAMMDDhhmm alarme(opcional) Nome do evento ## (marcador de fim do nome) Local ## 
+AAAAAMMDDhhmm AAAAAMMDDhhmm alarme(opcional) Nome do evento ## (marcador de fim do nome) Local ## 
+AAAAAMMDDhhmm AAAAAMMDDhhmm alarme(opcional) Nome do evento ## (marcador de fim do nome) Local ## 
+AAAAAMMDDhhmm AAAAAMMDDhhmm alarme(opcional) Nome do evento ## (marcador de fim do nome) Local ## 
+AAAAAMMDDhhmm AAAAAMMDDhhmm alarme(opcional) Nome do evento ## (marcador de fim do nome) Local ## 
+AAAAAMMDDhhmm AAAAAMMDDhhmm alarme(opcional) Nome do evento ## (marcador de fim do nome) Local ## 
+AAAAAMMDDhhmm AAAAAMMDDhhmm alarme(opcional) Nome do evento ## (marcador de fim do nome) Local ## 
+AAAAAMMDDhhmm AAAAAMMDDhhmm alarme(opcional) Nome do evento ## (marcador de fim do nome) Local ## 
+AAAAAMMDDhhmm AAAAAMMDDhhmm alarme(opcional) Nome do evento ## (marcador de fim do nome) Local ## 
+AAAAAMMDDhhmm AAAAAMMDDhhmm alarme(opcional) Nome do evento ## (marcador de fim do nome) Local ## 
+AAAAAMMDDhhmm AAAAAMMDDhhmm alarme(opcional) Nome do evento ## (marcador de fim do nome) Local ## 
+
+
+
+//eventos recorrentes:
+//inicio      fim      dias       hora
+AAAAAMMDD AAAAAMMDD 1001001 hhmm hhmm 
+AAAAAMMDD AAAAAMMDD 1001001 hhmm hhmm
+AAAAAMMDD AAAAAMMDD 1001001 hhmm hhmm
+AAAAAMMDD AAAAAMMDD 1001001 hhmm hhmm
+AAAAAMMDD AAAAAMMDD 1001001 hhmm hhmm
+AAAAAMMDD AAAAAMMDD 1001001 hhmm hhmm
+AAAAAMMDD AAAAAMMDD 1001001 hhmm hhmm
+AAAAAMMDD AAAAAMMDD 1001001 hhmm hhmm
+
+
+
+

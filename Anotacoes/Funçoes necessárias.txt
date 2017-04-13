@@ -1,0 +1,14 @@
+Data
+ OK      num_dias_mes(mes,ano);
+ OK      dia_da_semana(dia,mes,ano);
+
+Arquivos
+    grava_arquivo(file, *eventos)
+    le_arquivo(file)
+
+Listar/Busca
+    ordenar_por_data(*eventos)
+    listar_eventos(dia,mes,ano)
+
+Interface
+    # deixar para depois
