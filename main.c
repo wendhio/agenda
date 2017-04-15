@@ -140,6 +140,12 @@ int numero_dias_mes(int mes , int ano){
             return dias;
 }
 
+
+int valida_data(tm data){
+    if(numero_dias_mes(data.tm_mon,data.tm_year) < data.tm_mday || data.tm_mday < 1 || data.tm_mon > 12 || data.tm_mon < 1)return 0;
+    if(data.tm_hour <0 || data.tm_hour > 23 || data.tm_min < 0 || data.tm_min> 59)return 0;
+    return 1;
+
 int dia_semana(int d, int m , int a){
     return (d += m < 3 ? a-- : a - 2, 23*m/9 + d + 4 + a/4- a/100 + a/400)%7;
 }
@@ -154,3 +160,31 @@ typedef struct {
     int dias_semana;
 }evento;
 
+  
+void cria_evento (t_evento *evento , tm inicio, tm fim, char * nome , char * local ,int recorrente, int dias){
+    evento->inicio = inicio;
+    evento->fim = fim;
+    evento->nome = malloc(strlen(nome));
+    evento->local = malloc(strlen (local));
+    strcpy(evento->nome, nome);
+    strcpy(evento->local, local);
+    evento->recorrente = recorrente;
+    evento->dias_semana;
+}
+
+void apaga_evento(t_evento * evento){
+    free(evento->nome);
+    free(evento->local);
+    free(evento);
+}
+
+void modifica_evento (t_evento *evento , tm inicio, tm fim, char * nome , char * local ,int recorrente, int dias){
+    evento->inicio = inicio;
+    evento->fim = fim;
+    realloc(&evento->nome,strlen(nome));
+    realloc(&evento->local, strlen (local));
+    strcpy(evento->nome, nome);
+    strcpy(evento->local, local);
+    evento->recorrente = recorrente;
+    evento->dias_semana;
+}
