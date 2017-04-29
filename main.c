@@ -4,7 +4,7 @@
 #include <windows.h>
 #include <locale.h>
 #include <time.h>
-
+#include <ctype.h>
 
 #define MAX_CHAR_NOME_EVENTO 80
 #define MAX_CHAR_BUSCA 30
@@ -95,7 +95,7 @@ void entra_texto(COORD inicio, int tam, char *texto){
                 }
                 break;
             default:
-                if(ncarac < tam && ( (c_atual >=48 && c_atual <= 122) || c_atual == 32)){
+                if(ncarac < tam && ( (isalnum(c_atual)) || c_atual == 32)){
                     putchar(c_atual);
                     ncarac++;
                 }
@@ -224,9 +224,17 @@ void desenha_calendario(int mes, int ano,COORD origem){
 
 //==============================Funçoes de evento===================================================
 
+
+typedef struct {
+    int hora;
+    int min;
+}t_hora;
+
 typedef struct {
     time_t inicio;
     time_t fim;
+    t_hora hora_inicio;
+    t_hora hora_fim;
     char * nome;
     char * local;
     int recorrente;
@@ -235,9 +243,18 @@ typedef struct {
 
 
 
-void cria_evento (t_evento *evento ,time_t inicio,time_t fim, char * nome , char * local ,int recorrente, int dias){
+int valida_hora(t_hora hora){
+    return ( (hora.hora < 24 && hora.hora >= 0 ) && (hora.min >= 0 && hora.min < 60) );
+}
+
+
+
+
+void cria_evento (t_evento *evento ,time_t inicio,time_t fim, t_hora hora_inicio , t_hora hora_fim ,char * nome , char * local ,int recorrente, int dias){
     evento->inicio = inicio;
     evento->fim = fim;
+    evento->hora_inicio.hora;
+    evento->hora_fim.hora;
     evento->nome = malloc(strlen(nome));
     evento->local = malloc(strlen (local));
     strcpy(evento->nome, nome);
@@ -252,9 +269,11 @@ void apaga_evento(t_evento * evento){
     free(evento);
 }
 
-void modifica_evento (t_evento *evento ,time_t inicio,time_t fim, char * nome , char * local ,int recorrente, int dias){
+void modifica_evento (t_evento *evento ,time_t inicio,time_t fim, t_hora hora_inicio , t_hora hora_fim ,  char * nome , char * local ,int recorrente, int dias){
     evento->inicio = inicio;
     evento->fim = fim;
+    evento->hora_inicio.hora;
+    evento->hora_fim.hora;
     realloc(&evento->nome,strlen(nome));
     realloc(&evento->local, strlen (local));
     strcpy(evento->nome, nome);
@@ -284,9 +303,8 @@ void grava_eventos(t_evento * eventos){
     FILE * fpt;
     fpt = fopen("eventos.txt", "w");
     while (eventos->inicio!=-10){
-        fprintf(fpt , "%lu %lu %d %d %s%s" , eventos->inicio , eventos->fim , eventos->recorrente , eventos->dias_semana , eventos->nome , eventos->local);
+        fprintf(fpt , "%lu %lu %d %d %d %d %d %d %s%s" , eventos->inicio , eventos->fim , eventos->hora_inicio.hora , eventos->hora_inicio.min , eventos->hora_fim.hora , eventos->hora_fim.min , eventos->recorrente , eventos->dias_semana , eventos->nome , eventos->local);
         eventos = &eventos[1];
-        printf("#");
     }
     fclose(fpt);
 }
@@ -294,6 +312,8 @@ void grava_eventos(t_evento * eventos){
 int carrega_eventos(t_evento** eventos){
     int res=6, elem = 0 , espaco=100;
     time_t inicio , fim ;
+    t_hora hora_inicio;
+    t_hora hora_fim;
     t_evento * eventoA = * eventos;
     int recorrente , dias_semana;
     char  nome [81] , local [81];
@@ -301,8 +321,8 @@ int carrega_eventos(t_evento** eventos){
     fpt = fopen("eventos.txt", "r");
     eventoA = malloc(100 * sizeof(t_evento));
     while(res==6){
-        res = fscanf(fpt , "%lu %lu %d %d %[^\n] \r %[^\n]s" , &inicio , &fim , &recorrente , &dias_semana , nome , local);
-        cria_evento(&eventoA[elem] , inicio , fim , nome , local , recorrente , dias_semana );
+        res = fscanf(fpt , "%lu %lu %d %d %d %d %[^\n] \r %[^\n]s" , &inicio , &fim , &hora_inicio , &hora_fim , &recorrente , &dias_semana , nome , local);
+        cria_evento(&eventoA[elem] , inicio , fim , hora_inicio , hora_fim , nome , local , recorrente , dias_semana );
         //printf("%s", *eventos[elem]->nome);
         elem++;
         espaco--;
@@ -310,7 +330,7 @@ int carrega_eventos(t_evento** eventos){
         printf("*");
         if(espaco == 0){
             espaco = 100;
-            realloc(eventoA, (elem + 100) * sizeof(t_evento));
+            realloc(eventoA, (/*elem*/ + 100) * sizeof(t_evento));
         }
     }
     fclose(fpt);
@@ -333,13 +353,15 @@ int main(){
         mfgets(nome, 50);
         mfgets(local, 50);
         time(&seila);
-        cria_evento(&eventos[i] , seila , seila , nome , local , 123 , 1324);
+        cria_evento(&eventos[i] , seila , seila , (t_hora){10,10}, (t_hora){10,10} , nome , local , 123 , 1324);
     }
     eventos[i].inicio = -10;
     grava_eventos(eventos);
+            printf("####");
+            system("pause");
     carrega_eventos(&eventos2);
-
- /*   tm dataa;
+system("cls");
+    tm dataa;
     time_t teste1;
     dataa.tm_year = 2017;
     dataa.tm_mon = 4;
@@ -356,6 +378,7 @@ printf("%ls",L"╔════════════════════�
     criaCursor(&cursor1, 5, (COORD){2,7}, (COORD){6,5}, (COORD){5,2});
     printf("%d %d", cursor1.mn.X,cursor1.mn.Y);
     desenha_calendario(4,2017,(COORD){4,6});
+    getch();
     while(1){
         a=getch();
 
@@ -367,15 +390,15 @@ printf("%ls",L"╔════════════════════�
         if(a==77)move_cursor(&cursor1,DIREITA);
         desenha_cursor(cursor1);
     }
-*/
+
 
 
    // valida_data(tm data)  ====>>> retorna 1 se data for válida, retorna 0 se data for inválida;
 
-    int numeroEventos = carrega_eventos(eventos2);
+ /*//   int numeroEventos = carrega_eventos(eventos2);
     printf("==%d==", numeroEventos);
 for(i=0;i<numeroEventos;i++)
     //printf("%lu %lu %d %d %s %s" , eventos2[i].inicio , eventos2[i].fim , eventos2[i].recorrente , eventos2[i].dias_semana , eventos2[i].nome , eventos2[i].local);
     printf("%s" , eventos2[i].nome );
-    return 0;
+    return 0;*/
 }
