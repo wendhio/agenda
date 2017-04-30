@@ -270,6 +270,17 @@ void mfgets(char * texto, int tam){
     setbuf(stdin, NULL);
 }
 
+//Função Ordena por nome do evento.
+void InserSortNome(t_evento *name) {
+    int i, j;
+    t_evento aux;
+    for(i = 1; i < strlen(name) ; i++) {
+        aux = name[i];
+        for(j = i; (j>0) && (strcmp(aux.nome, name[j-1].nome) < 0); j--)
+            name[j] = name[j-1];
+        name[j] = aux;
+    }
+}
 
 //int compara_datas(tm data1, tm data_2){
 
